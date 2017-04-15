@@ -28,7 +28,7 @@ namespace ImAliveServerTemplate.Controllers
         {
             try
             {
-                return Ok(Json(test));
+                return Ok(Json(test + "1"));
             }
             catch (Exception e)
             {
