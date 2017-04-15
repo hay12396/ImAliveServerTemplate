@@ -22,6 +22,7 @@ namespace ImAliveServerTemplate.Controllers
             _context = context;
             _env = env;
         }
+
         [HttpGet]
         [Route("[action]/{test}")]
         public async Task<IActionResult> Test1([FromRoute] string test)
@@ -34,6 +35,20 @@ namespace ImAliveServerTemplate.Controllers
             {
                 return Ok(Json("Error"));
             }
-        }     
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> validate([FromBody] string json)
+        {
+            try
+            {
+                return Ok(Json(json));
+            }
+            catch (Exception e)
+            {
+                return Ok(Json("Error"));
+            }
+        }
     }
 }
